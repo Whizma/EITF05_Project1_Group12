@@ -1,0 +1,20 @@
+header {
+    color: rgb(6, 160, 6);
+    margin: 2%;
+}
+
+body {
+    background-color: yellow;
+}
+
+.basket {
+    width: 70%;
+    background-color: blueviolet;
+    color: white;
+}
+
+.shopping-item {
+    background-color: lavender;
+    color: blue;
+
+}
