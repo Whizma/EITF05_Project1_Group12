@@ -10,7 +10,8 @@ najs webshop
 - [ ] checkout
 
 ### TLS
-- [ ] Setup in admin
+- [x] Setup in admin
+  - TLS working (sort of) on one computer
 
 ### database
 - [ ] setup
