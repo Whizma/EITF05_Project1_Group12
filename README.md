@@ -2,18 +2,26 @@
 najs webshop
 
 
-# TODO:
-## HTML
-* page design
-- login
-- present items
-- checkout
+## TODO Construction phase:
+### HTML
+- [ ] page design
+- [ ] login
+- [ ] present items
+- [ ] checkout
 
-## TLS
-* Setup in admin
+### TLS
+- [ ] Setup in admin
 
-## database
+### database
+- [ ] setup
 
-## functionality (php?)
-* login 
-- databas
+### functionality (php?)
+ - [ ] login 
+    - [ ] databas
+- [ ] post items
+- [ ] put in shopping basket
+- [ ] checkout and payment
+    - [ ] receipt
+
+
+## TODO Security
