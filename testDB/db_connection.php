@@ -6,8 +6,8 @@ $dbuser = "root";
 $dbpass = "";
 $db = "testDB";
 
-// mySQLi skyddar mot injections, man kan använda mysql() men den är deprekerad
-$conn = new mysqli($dbhost, $dbuser, $dbpass) or die("Connect failed: %s\n". $conn -> error);
+// mySQLi (improved) skyddar mot injections, man kan använda mysql() men den är deprekerad
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die("Connect failed: %s\n". $conn -> error);
 
 return $conn;
 
@@ -15,7 +15,7 @@ return $conn;
 
 function CloseCon($conn)
 {
-    $conn -> close();
+    mysqli_close($conn);
 }
 
 
