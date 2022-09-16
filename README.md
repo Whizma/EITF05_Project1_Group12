@@ -11,7 +11,8 @@ najs webshop
 
 ### TLS
 - [x] Setup in admin
-  - TLS working (sort of) on one computer
+  - TLS working (sort of) on one computer.
+- []  Setup apache/xampp to use correct cert - if necessary
 
 ### database
 - [ ] setup
