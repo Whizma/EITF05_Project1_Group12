@@ -4,16 +4,17 @@ include 'db_connection.php';
 
 $conn = OpenCon();
 
-$sql = 'INSERT INTO testUser(Username, Hash, Salt)
-        VALUES ("Isak", "1234", "56")';
-echo "Test select DB";
-mysqli_select_db($name,"testDB") or die("can't find it");
+echo "Connected to DB ";
+
+$sql = "INSERT INTO testUser (Username, Hash, Salt)
+        VALUES ('Isak' , '1234' , '56')";
 
 if(mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
+    echo "New reccord created successfully";
 } else {
-    echo "problem här";
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
+
 
 CloseCon($conn);
 
