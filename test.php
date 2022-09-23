@@ -16,15 +16,12 @@ echo "Hello World";
         
         
       if(array_key_exists('button1', $_POST)) {
-            toggle_button();
-            echo $button_state;
-            if ($button_state) {
-                echo "Item added";
-            } else {
-                echo "Item removed";
-            }
-          
+        echo "Item removed";
+      } else if(array_key_exists('button_add', $_POST)) {
+        echo "Item added";
       }
+
+
 
       function toggle_button () {
         static $button_state = 0;
@@ -41,6 +38,8 @@ echo "Hello World";
         <form method="post">
         <input type="submit" name="button1"
                 value="remove item"/>
+                <input type="submit" name="button_add"
+                value="add item"/>
     </form>
     
     </article>
