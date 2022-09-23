@@ -28,3 +28,6 @@ najs webshop
 
 
 ## TODO Security
+- [ ] sql injection
+- [ ] xss (cross-site scripting)
+- [ ] csrf (cross-site request forgery)
