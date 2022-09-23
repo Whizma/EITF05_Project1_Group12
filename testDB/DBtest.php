@@ -6,6 +6,8 @@ $conn = OpenCon();
 
 echo "Connected to DB ";
 
+mysqli_select_db($conn, "testDB");
+
 $sql = "INSERT INTO testUser (Username, Hash, Salt)
         VALUES ('Isak' , '1234' , '56')";
 
