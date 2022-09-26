@@ -2,10 +2,9 @@
 include 'db_connection.php';
 $conn = OpenCon("login");
 
-$username = $_POST["username"];
+$username = $_POST["name"];
 $password = $_POST["password"];
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
-
 
 $sqlUsernameCheck = "SELECT username
                     FROM user_details
@@ -14,8 +13,9 @@ $sqlUsernameCheck = "SELECT username
 
 //Check if username already exists
 $usernameCheck =  mysqli_query($conn, $sqlUsernameCheck);
-if(mysqli_num_rows($usernameCheck) != 0){
-    echo "Error: Username already exists"
+
+if(mysqli_num_rows($usernameCheck) > 0){
+    echo "Error: Username already exists";
     CloseCon($conn);
     exit();
 }
