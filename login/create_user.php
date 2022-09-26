@@ -1,6 +1,6 @@
 <?php
 include 'db_connection.php';
-$conn = OpenCon("login");
+$conn = openCon("login");
 
 $username = $_POST["name"];
 $password = $_POST["password"];
@@ -16,7 +16,7 @@ $usernameCheck =  mysqli_query($conn, $sqlUsernameCheck);
 
 if(mysqli_num_rows($usernameCheck) > 0){
     echo "Error: Username already exists";
-    CloseCon($conn);
+    closeCon($conn);
     exit();
 }
 
@@ -30,5 +30,5 @@ echo "Welcome " . $username;
 
 //Inorder to display username on all pages, use $username = $_POST["username"]; and echo $username
 
-CloseCon($conn);
+closeCon($conn);
 ?>

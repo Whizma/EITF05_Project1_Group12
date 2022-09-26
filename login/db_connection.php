@@ -1,5 +1,5 @@
 <?php
-function OpenCon($input)
+function openCon($input)
 {
 $dbhost = "localhost";
 $dbuser = "root";
@@ -13,7 +13,7 @@ return $conn;
 
 }
 
-function CloseCon($conn)
+function closeCon($conn)
 {
     mysqli_close($conn);
 }
