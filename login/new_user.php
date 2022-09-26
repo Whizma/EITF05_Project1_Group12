@@ -2,8 +2,8 @@
 
 <html>
 <body>
-<form action ="create_user.php" method="get">
-Username: <input type ="text" name="username"<br>
+Username: <input type ="text" name="name"<br>
+<form action ="create_user.php" method="post">
 
 Password: <input type = "text" name="password"<br>
 <input type ="submit">
