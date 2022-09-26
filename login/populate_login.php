@@ -4,7 +4,7 @@ $conn = openCon("login");
 $sqlTruncate = "TRUNCATE TABLE user_details";
 
 if(mysqli_query($conn, $sqlTruncate)) {
-    echo "Truncation successfull... ";
+    echo "Truncation successfull...". "<br>\n";
 } else {
     echo "Problem with truncation";
     exit();
