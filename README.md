@@ -12,8 +12,7 @@ najs webshop
 ### TLS
 - [x] Setup in admin
   - TLS working on one computer.
-- [x]  Setup apache/xampp to use correct cert - if necessary
-- [ ]  Configure on all servers
+- [x]  Setup apache/xampp to use correct cert 
 
 ### database
 - [ ] setup
@@ -26,6 +25,12 @@ najs webshop
 - [ ] checkout and payment
     - [ ] receipt
 
+
+### How to setup TLS (and https)
+- httpd.conf in /opt/lampp/etc
+- httpd-ssl.conf and httpd-vhosts.conf in /opt/lampp/etc/extra
+- localhostcerts in /opt/lampp/etc
+- restart server and put https://localhost in browser
 
 ## TODO Security
 - [ ] sql injection
