@@ -1,5 +1,5 @@
 # EITF05_Project1_Group12
-najs webshop
+nice webshop using XAMPP 
 
 
 ## TODO Construction phase:
@@ -11,6 +11,16 @@ najs webshop
 
 ### TLS
 - [x]  Fully working 2048 RSA SHA-256
+### How to setup TLS (and https)
+```console
+cp httpd.conf /opt/lampp/etc
+cp httpd-ssl.conf httpd-vhosts.conf /opt/lampp/etc/extra
+cp -r localhostcerts /opt/lamp/etc
+cp mysite.crt /etc/ssl/certs 
+cp mysite.key /etc/ssl/private
+```
+- all directories are recommendations, but may look different on different operating systems so moving files to wherever and changing responding .conf files is also possible if directories are non-existing
+- restart server and put https://localhost in browser
 
 ### database
 - [ ] setup
@@ -23,16 +33,6 @@ najs webshop
 - [ ] checkout and payment
     - [ ] receipt
 
-
-### How to setup TLS (and https)
-```console
-cp httpd.conf /opt/lampp/etc
-cp httpd-ssl.conf httpd-vhosts.conf /opt/lampp/etc/extra
-cp -r localhostcerts /opt/lamp/etc
-cp mysite.crt /etc/ssl/certs
-cp mysite.key /etc/ssl/private
-```
-- restart server and put https://localhost in browser
 
 ## TODO Security
 - [ ] sql injection
