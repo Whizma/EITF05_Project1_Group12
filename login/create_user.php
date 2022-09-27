@@ -6,7 +6,10 @@ $username = $_POST["name"];
 $password = $_POST["password"];
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-if(!preg_match('/^(?=[a-z])(?=[A-Z])[a-zA-Z]{8,}$/', $password)) {
+$uppercase = preg_match('@[A-Z]@', $password);
+$lowercase = preg_match('@[a-z]@', $password);
+
+if(!$uppercase || !$lowercase || strlen($password) < 8) {
     Echo "Password too weak";
     exit();
     closeCon($conn);
