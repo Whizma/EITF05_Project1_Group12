@@ -27,11 +27,11 @@ najs webshop
 
 
 ### How to setup TLS (and https)
-- httpd.conf in /opt/lampp/etc
-- httpd-ssl.conf and httpd-vhosts.conf in /opt/lampp/etc/extra
-- localhostcerts in /opt/lampp/etc
-- mysite.crt to /etc/ssl/certs
-- mysite.key to /etc/ssl/private
+- copy httpd.conf to /opt/lampp/etc
+- copy httpd-ssl.conf and httpd-vhosts.conf to /opt/lampp/etc/extra
+- copy localhostcerts in /opt/lampp/etc
+- copy mysite.crt to /etc/ssl/certs
+- copy mysite.key to /etc/ssl/private
 - restart server and put https://localhost in browser
 
 ## TODO Security
