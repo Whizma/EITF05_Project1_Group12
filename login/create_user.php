@@ -6,6 +6,12 @@ $username = $_POST["name"];
 $password = $_POST["password"];
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
+if(!preg_match('/^(?=[a-z])(?=[A-Z])[a-zA-Z]{8,}$/', $password)) {
+    Echo "Password too weak";
+    exit();
+    closeCon($conn);
+}
+
 $sqlUsernameCheck = "SELECT username
                     FROM user_details
                     WHERE username = '$username'";
