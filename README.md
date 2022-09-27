@@ -10,9 +10,7 @@ najs webshop
 - [ ] checkout
 
 ### TLS
-- [x] Setup in admin
-  - TLS working on one computer.
-- [x]  Setup apache/xampp to use correct cert 
+- [x]  Fully working 2048 RSA SHA-256
 
 ### database
 - [ ] setup
@@ -27,11 +25,13 @@ najs webshop
 
 
 ### How to setup TLS (and https)
-- copy httpd.conf to /opt/lampp/etc
-- copy httpd-ssl.conf and httpd-vhosts.conf to /opt/lampp/etc/extra
-- copy localhostcerts in /opt/lampp/etc
-- copy mysite.crt to /etc/ssl/certs
-- copy mysite.key to /etc/ssl/private
+```console
+cp httpd.conf /opt/lampp/etc
+cp httpd-ssl.conf httpd-vhosts.conf /opt/lampp/etc/extra
+cp -r localhostcerts /opt/lamp/etc
+cp mysite.crt /etc/ssl/certs
+cp mysite.key /etc/ssl/private
+```
 - restart server and put https://localhost in browser
 
 ## TODO Security
