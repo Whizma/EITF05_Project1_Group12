@@ -13,7 +13,10 @@ najs webshop
 - [x] Setup in admin
   - TLS working on one computer.
 - [x]  Setup apache/xampp to use correct cert - if necessary
-- [ ]  Configure on all servers
+#### 
+httpd.conf in /opt/lampp/etc
+httpd-ssl.conf and httpd-vhosts.conf in /opt/lampp/etc/extra
+localhostcerts in /opt/lampp/etc
 
 ### database
 - [ ] setup
