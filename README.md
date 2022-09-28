@@ -10,7 +10,7 @@ nice webshop using XAMPP
 - [ ] checkout
 
 ### TLS
-- [x]  Fully working 2048 RSA SHA-256
+- [x]  Fully working TLS_AES_128_GCM_SHA256, 128 bit keys, TLS 1.3)
 ### How to setup TLS (and https)
 ```console
 cp httpd.conf /opt/lampp/etc
