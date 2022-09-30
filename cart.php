@@ -63,26 +63,29 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
 //     exit;
 // }
 
-// Check the session variable for products in cart
-// $products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
-// $products = array();
-// $subtotal = 0.00;
-// // If there are products in cart
-// if ($products_in_cart) {
-//     // There are products in the cart so we need to select those products from the database
-//     // Products in cart array to question mark string array, we need the SQL statement to include IN (?,?,?,...etc)
-//     $array_to_question_marks = implode(',', array_fill(0, count($products_in_cart), '?'));
-//     $stmt = $conn->prepare('SELECT * FROM product_table WHERE id IN ?');
-//     $stmt->bind_param("s", $array_to_question_marks);
-//     // We only need the array keys, not the values, the keys are the id's of the products
-//     $stmt = mysqli_query($conn, $stmt);
-//     // Fetch the product from the database and return the result as an Array
-//     $product = $stmt->fetch_all(MYSQLI_ASSOC);
-//     // Calculate the subtotal
-//     foreach ($products as $product) {
-//         $subtotal += (float)$product['price'] * (int)$products_in_cart[$product['id']];
-//     }
-// }
+//Check the session variable for products in cart
+$products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
+$products = array();
+$subtotal = 0.00;
+// If there are products in cart
+if ($products_in_cart) {
+    //There are products in the cart so we need to select those products from the database
+    //Products in cart array to question mark string array, we need the SQL statement to include IN (?,?,?,...etc)
+    //$array_to_question_marks = implode(',', array_fill(0, count($products_in_cart), '?'));
+
+    $array_product_ids = implode(",", array_keys($products_in_cart));
+    $stmt = "SELECT * FROM product_table WHERE id IN ($array_product_ids)";
+    $subtotal = $stmt;
+    // $stmt->bind_param("s", $array_to_question_marks);
+    // // We only need the array keys, not the values, the keys are the id's of the products
+    $result = mysqli_query($conn, $stmt);
+    // // Fetch the product from the database and return the result as an Array
+    $products = $result->fetch_all(MYSQLI_ASSOC);
+    // // Calculate the subtotal
+    // foreach ($products as $product) {
+    //     $subtotal += (float)$product['price'] * (int)$products_in_cart[$product['id']];
+    // }
+}
 ?>
 
 
