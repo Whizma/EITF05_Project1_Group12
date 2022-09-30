@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: localhost
--- Tid vid skapande: 30 sep 2022 kl 09:57
+-- Tid vid skapande: 30 sep 2022 kl 10:02
 -- Serverversion: 10.4.21-MariaDB
 -- PHP-version: 8.1.6
 
@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Databas: `login`
 --
+DROP DATABASE IF EXISTS `login`;
 CREATE DATABASE IF NOT EXISTS `login` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `login`;
 
@@ -55,6 +56,7 @@ ALTER TABLE `user_details`
 --
 -- Databas: `phpmyadmin`
 --
+DROP DATABASE IF EXISTS `phpmyadmin`;
 CREATE DATABASE IF NOT EXISTS `phpmyadmin` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 USE `phpmyadmin`;
 
@@ -499,6 +501,7 @@ ALTER TABLE `pma__savedsearches`
 --
 -- Databas: `products`
 --
+DROP DATABASE IF EXISTS `products`;
 CREATE DATABASE IF NOT EXISTS `products` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `products`;
 
@@ -535,6 +538,7 @@ ALTER TABLE `product_table`
 --
 -- Databas: `test`
 --
+DROP DATABASE IF EXISTS `test`;
 CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `test`;
 COMMIT;
