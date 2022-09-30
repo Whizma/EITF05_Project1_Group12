@@ -21,7 +21,7 @@ echo "This is home";
             <span class="name"><?=$product['name']?></span>
             <span class="price"><?=$product['price']?></span>
 
-            <form action="index.php?page=cart" method="post">
+            <form action="index1.php?page=cart" method="post">
             <input type="number" name="quantity" value="1" min="1" max="5" placeholder="Quantity" required>
             <input type="hidden" name="product_id" value="<?=$product['id']?>">
             <input type="submit" value="Add To Cart">
