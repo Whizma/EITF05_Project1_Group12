@@ -12,7 +12,7 @@ echo "This is home";
     <h2>Products</h2>
     <p>Description</p>
 </div>
-<div class="homeproducts content-wrapper">
+<div class="product content-wrapper">
     <h2>Our Products</h2>
     <div class="products">
     <?php foreach ($products as $product): ?>
