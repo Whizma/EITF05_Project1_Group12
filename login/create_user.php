@@ -15,6 +15,18 @@ if(!$uppercase || !$lowercase || strlen($password) < 8) {
     closeCon($conn);
 }
 
+$sqlPaswordBlacklist = "SELECT bl_pwd
+                        FROM blacklisted
+                        WHERE bl_pwd = '$password";
+
+$passwordCheck = mysqli_query($conn, $sqlPaswordBlacklist);
+
+if(mysqli_num_rows($passwordCheck) > 0){
+    echo "Error: Do not use commonly used passwords";
+    closeCon($conn);
+    exit();
+}
+
 $sqlUsernameCheck = "SELECT username
                     FROM user_details
                     WHERE username = '$username'";
