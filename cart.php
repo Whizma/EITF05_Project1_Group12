@@ -74,17 +74,17 @@ if ($products_in_cart) {
     //$array_to_question_marks = implode(',', array_fill(0, count($products_in_cart), '?'));
 
     $array_product_ids = implode(",", array_keys($products_in_cart));
+    // NOTE!!! Not safe
     $stmt = "SELECT * FROM product_table WHERE id IN ($array_product_ids)";
-    $subtotal = $stmt;
     // $stmt->bind_param("s", $array_to_question_marks);
     // // We only need the array keys, not the values, the keys are the id's of the products
     $result = mysqli_query($conn, $stmt);
     // // Fetch the product from the database and return the result as an Array
     $products = $result->fetch_all(MYSQLI_ASSOC);
     // // Calculate the subtotal
-    // foreach ($products as $product) {
-    //     $subtotal += (float)$product['price'] * (int)$products_in_cart[$product['id']];
-    // }
+    foreach ($products as $product) {
+        $subtotal += (float)$product['price'] * (int)$products_in_cart[$product['id']];
+    }
 }
 ?>
 
@@ -113,7 +113,7 @@ if ($products_in_cart) {
                 <tr>
                     <td class="img">
                         <a href="index1.php?page=product&id=<?=$product['id']?>">
-                            <img src="imgs/<?=$product['img']?>" width="50" height="50" alt="<?=$product['name']?>">
+                            <img src="images/<?=$product['img']?>" width="50" height="50" alt="<?=$product['name']?>">
                         </a>
                     </td>
                     <td>
