@@ -19,7 +19,7 @@ echo "This is home";
         <a href="index1.php?page=product&id=<?=$product['id']?>" class="product">
             <img src="images/<?=$product['img']?>" width="200" height="200" alt="<?=$product['name']?>">
             <span class="name"><?=$product['name']?></span>
-            <span class="price"><?=$product['price']?></span>
+            <span class="price">&dollar;<?=$product['price']?></span>
 
             <form action="index1.php?page=cart" method="post">
             <input type="number" name="quantity" value="1" min="1" max="5" placeholder="Quantity" required>
