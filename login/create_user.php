@@ -19,7 +19,7 @@ if(!$uppercase || !$lowercase || strlen($password) < 8) {
 
 $sqlPaswordBlacklist = "SELECT bl_pwd
                         FROM blacklist
-                        WHERE bl_pwd = '$password";
+                        WHERE bl_pwd = '$password'";
 
 $passwordCheck = mysqli_query($conn, $sqlPaswordBlacklist);
 
