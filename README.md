@@ -4,10 +4,10 @@ nice webshop using XAMPP
 
 ## TODO Construction phase:
 ### HTML
-- [ ] page design
+- [x] page design
 - [ ] login
 - [ ] present items
-- [ ] checkout
+- [ ] checkout - what does simulate payment entail??
 
 ### TLS
 - [x]  Fully working TLS_AES_128_GCM_SHA256, 128 bit keys, TLS 1.3)
@@ -28,10 +28,12 @@ cp mysite.key /etc/ssl/private
 ### functionality (php?)
  - [ ] login 
     - [ ] databas
-- [ ] post items
-- [ ] put in shopping basket
+- [x] post items
+- [x] put in shopping basket
 - [ ] checkout and payment
     - [ ] receipt
+#### optional
+- [ ] remove items in shopping cart after checkout
 
 
 ## TODO Security
