@@ -32,11 +32,11 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
     // exit;
 }
 
-// // Remove product from cart, check for the URL param "remove", this is the product id, make sure it's a number and check if it's in the cart
-// if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['cart']) && isset($_SESSION['cart'][$_GET['remove']])) {
-//     // Remove the product from the shopping cart
-//     unset($_SESSION['cart'][$_GET['remove']]);
-// }
+// Remove product from cart, check for the URL param "remove", this is the product id, make sure it's a number and check if it's in the cart
+if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['cart']) && isset($_SESSION['cart'][$_GET['remove']])) {
+    // Remove the product from the shopping cart
+    unset($_SESSION['cart'][$_GET['remove']]);
+}
 
 // // Update product quantities in cart if the user clicks the "Update" button on the shopping cart page
 // if (isset($_POST['update']) && isset($_SESSION['cart'])) {
