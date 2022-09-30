@@ -9,11 +9,13 @@ $password_hash = password_hash($password, PASSWORD_DEFAULT);
 $uppercase = preg_match('@[A-Z]@', $password);
 $lowercase = preg_match('@[a-z]@', $password);
 
+
 if(!$uppercase || !$lowercase || strlen($password) < 8) {
-    Echo "Password too weak";
+    echo "Password too weak";
     exit();
     closeCon($conn);
 }
+
 
 $sqlPaswordBlacklist = "SELECT bl_pwd
                         FROM blacklisted
