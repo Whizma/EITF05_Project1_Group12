@@ -37,6 +37,7 @@ cp mysite.key /etc/ssl/private
 ## TODO Security
 - [ ] sql injection
 - [ ] xss (cross-site scripting)
+   - attack working using the script on https://localhost/login/create_user.php using \<a onmouseover="alert(document.cookie)"\>xxs link\</a\> as username and password clearing password policy
 - [ ] csrf (cross-site request forgery)
 
 ### tl;dr säkerhet
