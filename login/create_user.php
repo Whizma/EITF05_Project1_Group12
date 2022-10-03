@@ -4,6 +4,7 @@ $conn = openCon("login");
 
 $username = $_POST["name"];
 $password = $_POST["password"];
+$address = $_POST["address"];
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
 $uppercase = preg_match('@[A-Z]@', $password);
@@ -44,8 +45,8 @@ if(mysqli_num_rows($usernameCheck) > 0){
 }
 
 
-$sql = "INSERT INTO user_details (username, hash)
-        VALUES ('$username', '$password_hash')";
+$sql = "INSERT INTO user_details (username, address, hash)
+        VALUES ('$username', '$address','$password_hash')";
 
 mysqli_query($conn, $sql);
 echo "Welcome " . $username;

@@ -11,6 +11,8 @@ $sqlGetHash =  "SELECT hash
 
 $result = mysqli_query($conn, $sqlGetHash);
 
+sleep(1);
+
 if(mysqli_num_rows($result) != 1){
     echo "Error: wrong password";
     closeCon($conn);

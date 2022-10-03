@@ -13,10 +13,10 @@ $passwordErik = password_hash("Malmgren", PASSWORD_DEFAULT);
 $passwordIsak = password_hash("Määttä", PASSWORD_DEFAULT);
 $passwordIda = password_hash("Levison", PASSWORD_DEFAULT);
 
-$sqlPopulate = "INSERT INTO user_details (username, hash)
-                VALUES  ('Erik', '$passwordErik'),
-                        ('Isak', '$passwordIsak'),
-                        ('Ida', '$passwordIda')";
+$sqlPopulate = "INSERT INTO user_details (username, address, hash)
+                VALUES  ('Erik', 'Paradisäppelvägen 111', '$passwordErik'),
+                        ('Isak', 'Paradisäppelvägen 113', '$passwordIsak'),
+                        ('Ida', 'Paradisgatan 8', '$passwordIda')";
 
 if(mysqli_query($conn, $sqlPopulate)){
     echo "Database populated";

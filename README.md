@@ -23,11 +23,11 @@ cp mysite.key /etc/ssl/private
 - restart server and put https://localhost in browser
 
 ### database
-- [ ] setup
+- [x] setup
 
 ### functionality (php?)
- - [ ] login 
-    - [ ] databas
+ - [x] login 
+    - [x] databas
 - [x] post items
 - [x] put in shopping basket
 - [ ] checkout and payment
