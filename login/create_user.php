@@ -17,7 +17,7 @@ $lowercase = preg_match('@[a-z]@', $password);
 if(!$uppercase || !$lowercase || strlen($password) < 8) {
     echo "Password too weak";
     exit();
-    closeCon($conn);
+    closeCon($conn);    
 }
 
 if(strlen($username) == 0){
