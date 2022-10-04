@@ -53,7 +53,7 @@ if(mysqli_num_rows($usernameCheck) > 0){
 }
 
 
-$sql = "INSERT INTO user_details (username, hash, address,)
+$sql = "INSERT INTO user_details (username, hash, address)
         VALUES ('$username','$password_hash', '$address')";
 
 mysqli_multi_query($conn, $sql);
