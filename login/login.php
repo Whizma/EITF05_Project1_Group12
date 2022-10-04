@@ -4,7 +4,7 @@
     <body>
         <form action ="check_login.php" method="post">
             Username: <input type = "text" name="new_name"><br>
-            Password: <input type = "text" name="new_password"><br>
+            Password: <input type = "password" name="new_password"><br>
             <input type ="submit">
         </form>
     </body>
