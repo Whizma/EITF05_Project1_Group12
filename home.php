@@ -1,16 +1,19 @@
 <?php 
-
 echo file_get_contents("html/header.html");
+welcomeUser();
+
 // Get products
 $stmt = "SELECT * FROM product_table";
 $result = mysqli_query($conn, $stmt);
 $products = $result->fetch_all(MYSQLI_ASSOC);
-echo "This is home";
+
+
 ?>
 
 <div class="featured">
-    <h2>Products</h2>
-    <p>Description</p>
+<form action="index1.php?page=home" method="post">
+            <input type="submit" value="Log out">
+</form>
 </div>
 <div class="product content-wrapper">
     <h2>Our Products</h2>
@@ -28,6 +31,7 @@ echo "This is home";
         </form>
         </a>
         <?php endforeach; ?>
+
     </div>
 </div>
 

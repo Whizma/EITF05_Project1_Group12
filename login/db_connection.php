@@ -18,5 +18,14 @@ function closeCon($conn)
     mysqli_close($conn);
 }
 
+function welcomeUser() 
+{
+    $username = empty($_SESSION["name"]) ? 'guest' : $_SESSION["name"];
+    print "Welcome " . $username;
+}
+
+function logout() 
+{
+}
 
 ?>
