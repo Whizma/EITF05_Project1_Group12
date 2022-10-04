@@ -55,6 +55,8 @@ $sql = "INSERT INTO user_details (username, address, hash)
 
 mysqli_query($conn, $sql);
 echo "Welcome " . $username;
+$_SESSION['name'] = $username;
+
 
 
 //Inorder to display username on all pages, use $username = $_POST["username"]; and echo $username
