@@ -2,8 +2,8 @@
 include 'db_connection.php';
 $conn = openCon("login");
 
-$username = $_POST["new_name"];
-$password = $_POST["new_password"];
+$username = strip_tags($_POST["new_name"]);
+$password = strip_tags($_POST["new_password"]);
 
 $sqlGetHash =  "SELECT hash
                 FROM user_details

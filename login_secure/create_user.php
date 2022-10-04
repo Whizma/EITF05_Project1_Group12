@@ -2,9 +2,9 @@
 include 'db_connection.php';
 $conn = openCon("login");
 
-$username = $_POST["name"];
-$password = $_POST["password"];
-$address = $_POST["address"];
+$username = strip_tags($_POST["name"]);
+$password = strip_tags($_POST["password"]);
+$address = strip_tags($_POST["address"]);
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
 $uppercase = preg_match('@[A-Z]@', $password);
