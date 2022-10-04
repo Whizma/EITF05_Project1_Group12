@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php echo file_get_contents("../html/header.html");?>
 
 <html>
     <body>
@@ -11,3 +12,4 @@
 </html>
 
 
+<?php echo file_get_contents("../html/footer.html");?>

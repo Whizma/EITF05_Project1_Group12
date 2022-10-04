@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<?php echo file_get_contents("../html/header.html");?>
 <html>
     <body>
         <form action ="check_login.php" method="post">
@@ -11,3 +11,4 @@
 </html>
 
 
+<?php echo file_get_contents("../html/footer.html");?>

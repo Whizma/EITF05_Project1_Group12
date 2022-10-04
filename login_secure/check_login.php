@@ -32,3 +32,6 @@ if(password_verify($password, $hash[0])){
 
 closeCon($conn);
 ?>
+
+<?php echo file_get_contents("../html/header.html");?>
+<?php echo file_get_contents("../html/footer.html");?>

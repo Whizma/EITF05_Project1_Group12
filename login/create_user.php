@@ -1,3 +1,5 @@
+
+
 <?php
 include 'db_connection.php';
 $conn = openCon("login");
@@ -17,6 +19,11 @@ if(!$uppercase || !$lowercase || strlen($password) < 8) {
     closeCon($conn);
 }
 
+if(strlen($username) == 0){
+    echo "Username too short";
+    exit();
+    closeCon($conn);
+}
 
 $sqlPaswordBlacklist = "SELECT bl_pwd
                         FROM blacklist
@@ -56,3 +63,7 @@ echo "Welcome " . $username;
 
 closeCon($conn);
 ?>
+
+
+<?php echo file_get_contents("../html/header.html");?>
+<?php echo file_get_contents("../html/footer.html");?>

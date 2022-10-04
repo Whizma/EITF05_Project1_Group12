@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<?php echo file_get_contents("../html/header.html");?>
 <html>
     <body>
         <form action ="create_user.php" method="post">
@@ -12,3 +12,5 @@
 </html>
 
 
+
+<?php echo file_get_contents("../html/footer.html");?>
