@@ -56,7 +56,7 @@ if(mysqli_num_rows($usernameCheck) > 0){
 $sql = "INSERT INTO user_details (username, address, hash)
         VALUES ('$username', '$address','$password_hash')";
 
-mysqli_query($conn, $sql);
+mysqli_multi_query($conn, $sql);
 echo "Welcome " . $username;
 $_SESSION['name'] = $username;
 
