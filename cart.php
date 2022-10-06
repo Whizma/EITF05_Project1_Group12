@@ -38,9 +38,7 @@ if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['ca
     unset($_SESSION['cart'][$_GET['remove']]);
 }
 
-// Update product quantities in cart if the user clicks the "Update" button on the shopping cart page
-if (isset($_POST['update']) && isset($_SESSION['cart'])) {
-    // Loop through the post data so we can update the quantities for every product in cart
+function update() {
     foreach ($_POST as $k => $v) {
         if (strpos($k, 'quantity') !== false && is_numeric($v)) {
             $id = str_replace('quantity-', '', $k);
@@ -54,6 +52,12 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
     }
     // Prevent form resubmission...
     header('location: index1.php?page=cart');
+} 
+
+// Update product quantities in cart if the user clicks the "Update" button on the shopping cart page
+if (isset($_POST['update']) && isset($_SESSION['cart'])) {
+    // Loop through the post data so we can update the quantities for every product in cart
+    update();
     exit;
 }
 
@@ -86,8 +90,13 @@ if ($products_in_cart) {
 }
 
 if (isset($_POST['logout'])) {
-    logout();
+    if (!empty($_SESSION["name"])) {
+        logout();
+        update();
+        exit;
+    }
 }
+
 ?>
 <?php 
 echo file_get_contents("html/header.html"); 
