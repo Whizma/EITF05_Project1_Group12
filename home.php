@@ -1,19 +1,21 @@
 <?php 
 echo file_get_contents("html/header.html");
-welcomeUser();
 
 // Get products
 $stmt = "SELECT * FROM product_table";
 $result = mysqli_query($conn, $stmt);
 $products = $result->fetch_all(MYSQLI_ASSOC);
 
-
+welcomeUser();
+if (isset($_POST['logout'])) {
+    logout();
+}
 ?>
-
 <div class="featured">
-<form action="index1.php?page=home" method="post">
-            <input type="submit" value="Log out">
-</form>
+    <form action="index1.php?page=home" method="post">
+        <input type="hidden" name="logout" value="hej">
+        <input type="submit" value="Log out" onclick="logout()"> 
+    </form>
 </div>
 <div class="product content-wrapper">
     <h2>Our Products</h2>

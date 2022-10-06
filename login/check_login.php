@@ -25,8 +25,8 @@ if(mysqli_num_rows($result) != 1){
 $hash = array_values(mysqli_fetch_assoc($result));
 
 if(password_verify($password, $hash[0])){
-    echo "Welcome " . $username;
     $_SESSION['name'] = $username;
+    echo "Welcome " . $_SESSION['name'] ;
 } else {
     echo "Error: Wrong password";
     exit();

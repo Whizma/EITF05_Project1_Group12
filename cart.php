@@ -76,8 +76,6 @@ if ($products_in_cart) {
     $array_product_ids = implode(",", array_keys($products_in_cart));
     // NOTE!!! Not safe
     $stmt = "SELECT * FROM product_table WHERE id IN ($array_product_ids)";
-    // $stmt->bind_param("s", $array_to_question_marks);
-    // // We only need the array keys, not the values, the keys are the id's of the products
     $result = mysqli_query($conn, $stmt);
     // // Fetch the product from the database and return the result as an Array
     $products = $result->fetch_all(MYSQLI_ASSOC);
@@ -86,10 +84,25 @@ if ($products_in_cart) {
         $subtotal += (float)$product['price'] * (int)$products_in_cart[$product['id']];
     }
 }
+
+if (isset($_POST['logout'])) {
+    logout();
+}
+?>
+<?php 
+echo file_get_contents("html/header.html"); 
+welcomeUser();
 ?>
 
 
-<?php echo file_get_contents("html/header.html"); ?>
+<div class="featured">
+    <form action="index1.php?page=<?=$page?>" method="post">
+        <input type="hidden" name="logout" value="hej">
+        <input type="submit" value="Log out" onclick="logout()"> 
+    </form>
+</div>
+
+
 
 <div class="cart content-wrapper">
     <h1>Shopping Cart</h1>
