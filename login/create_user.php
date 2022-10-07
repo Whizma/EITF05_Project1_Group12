@@ -56,7 +56,19 @@ if(mysqli_num_rows($usernameCheck) > 0){
 $sql = "INSERT INTO user_details (username, hash, address)
         VALUES ('$username','$password_hash', '$address')";
 
+
 mysqli_multi_query($conn, $sql);
+// Denna SQL injection funkar
+// Isak'); DELETE FROM user_details WHERE ('1'= '1
+do {
+    $result = mysqli_use_result($conn);
+    if($result){
+        $values = $result->fetch_all();
+        $result->free();
+    }
+} while (mysqli_next_result($conn));
+mysqli_store_result($conn);
+
 echo "Welcome " . $username;
 $_SESSION['name'] = $username;
 
