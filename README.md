@@ -37,10 +37,14 @@ cp mysite.key /etc/ssl/private
 
 
 ## TODO Security
-- [ ] sql injection
+- [x] sql injection
+   ```sql
+   Isak'); DELETE FROM user_details WHERE ('1'= '1
+   ``` 
+   in create user will delete all rows from table user_details in database login
 - [x] xss (cross-site scripting)
    - attack working using the script on https://localhost/login/create_user.php using \<a onmouseover="alert(document.cookie)"\>xxs link\</a\> as username and password clearing password policy
-   - [ ] write php that sanitizes malicious inputs - probably using existing filters
+   - [x] write php that sanitizes malicious inputs - probably using existing filters
 - [ ] csrf (cross-site request forgery)
 
 ### tl;dr säkerhet
