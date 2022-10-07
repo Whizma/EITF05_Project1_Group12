@@ -63,9 +63,8 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
 // Send the user to the place order page if they click the Place Order button, also the cart should not be empty
 if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
     $products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
-    if (!(isset($_SESSION['receipt']) && is_array($_SESSION['receipt']))) {
-        $_SESSION['receipt'] = array();
-    }
+    $_SESSION['receipt'] = array();
+
     foreach (array_keys($products_in_cart) as $product_id) {
         $quantity = $products_in_cart[$product_id];
         if ($product_id && (int)$quantity > 0) {
@@ -124,7 +123,7 @@ welcomeUser();
 
 
 
-<div class="cart content-wrapper">
+<div class="cart">
     <h1>Shopping Cart</h1>
     <form action="index1.php?page=cart" method="post">
         <table>
