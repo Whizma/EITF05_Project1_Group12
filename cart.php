@@ -11,7 +11,6 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
     //Fetch the product from the database and return the result as an Array
     $product = $result->fetch_all(MYSQLI_ASSOC);
     //Check if the product exists (array is not empty)
-    echo $product['name'];
     if ($product && $quantity > 0) {
         // Product exists in database, now we can create/update the session variable for the cart
         if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
@@ -63,6 +62,18 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
 
 // Send the user to the place order page if they click the Place Order button, also the cart should not be empty
 if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+    $products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
+    if (!(isset($_SESSION['receipt']) && is_array($_SESSION['receipt']))) {
+        $_SESSION['receipt'] = array();
+    }
+    foreach (array_keys($products_in_cart) as $product_id) {
+        $quantity = $products_in_cart[$product_id];
+        if ($product_id && (int)$quantity > 0) {
+            $_SESSION['receipt'][$product_id] = $quantity;
+        }
+    }
+
+    //TODO remove all items from cart
     header('Location: index1.php?page=placeorder');
     exit;
 }
@@ -160,6 +171,7 @@ welcomeUser();
         <div class="buttons">
             <input type="submit" value="Update" name="update">
             <input type="submit" value="Place Order" name="placeorder">
+
         </div>
     </form>
 </div>
