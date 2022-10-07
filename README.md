@@ -5,8 +5,8 @@ nice webshop using XAMPP
 ## TODO Construction phase:
 ### HTML
 - [x] page design
-- [ ] login
-- [ ] present items
+- [x] login
+- [x] present items
 - [ ] checkout - what does simulate payment entail??
 
 ### TLS
@@ -33,12 +33,12 @@ cp mysite.key /etc/ssl/private
 - [ ] checkout and payment
     - [ ] receipt
 #### optional
-- [ ] remove items in shopping cart after checkout
+- [x] remove items in shopping cart after checkout
 
 
 ## TODO Security
 - [ ] sql injection
-- [ ] xss (cross-site scripting)
+- [x] xss (cross-site scripting)
    - attack working using the script on https://localhost/login/create_user.php using \<a onmouseover="alert(document.cookie)"\>xxs link\</a\> as username and password clearing password policy
    - [ ] write php that sanitizes malicious inputs - probably using existing filters
 - [ ] csrf (cross-site request forgery)
