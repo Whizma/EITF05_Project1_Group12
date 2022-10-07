@@ -71,8 +71,8 @@ if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION[
             $_SESSION['receipt'][$product_id] = $quantity;
         }
     }
-
-    //TODO remove all items from cart
+    // Remove items from cart
+    $_SESSION['cart'] = array();
     header('Location: index1.php?page=placeorder');
     exit;
 }
