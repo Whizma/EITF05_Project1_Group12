@@ -27,6 +27,7 @@ $hash = array_values(mysqli_fetch_assoc($result));
 if(password_verify($password, $hash[0])){
     echo "Welcome " . $username;
     $_SESSION['name'] = $username;
+    $_SESSION['token'] = bin2hex(random_bytes(35));
 
 } else {
     echo "Error: Wrong password";
