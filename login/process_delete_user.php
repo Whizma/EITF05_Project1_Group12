@@ -3,11 +3,5 @@
 session_start();
 include 'db_connection.php';
 $conn = openCon("login");
-
-if($_POST['token'] == $_SESSION['token']){
-    echo "Token does not match";
-} else {
-    echo "User deleted";
-}
-
+echo "user deleted";
 ?>

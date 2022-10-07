@@ -26,7 +26,7 @@ $hash = array_values(mysqli_fetch_assoc($result));
 
 if(password_verify($password, $hash[0])){
     $_SESSION['name'] = $username;
-    $_SESSION['token'] = 1;
+
     echo "Welcome " . $_SESSION['name'] ;
 } else {
     echo "Error: Wrong password";
