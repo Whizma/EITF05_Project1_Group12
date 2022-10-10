@@ -6,7 +6,7 @@ $conn = openCon("login");
 $username = $_POST["new_name"];
 $password = $_POST["new_password"];
 
-$sqlGetHash =  "SELECT hash
+$sqlGetHash =  "SELECT hash, address
                 FROM user_details
                 WHERE username = '$username'";
 
@@ -26,8 +26,10 @@ $hash = array_values(mysqli_fetch_assoc($result));
 
 if(password_verify($password, $hash[0])){
     $_SESSION['name'] = $username;
+    $_SESSION['address'] = $hash[1];
 
     echo "Welcome " . $_SESSION['name'] ;
+
 } else {
     echo "Error: Wrong password";
     exit();

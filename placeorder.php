@@ -24,8 +24,6 @@ if ($products_in_cart) {
     }
 }
 
-
-
 ?>
 <div class="featured">
     <form action="index1.php?page=<?=$page?>" method="post">
@@ -39,6 +37,17 @@ if ($products_in_cart) {
 <div class="placeorder">
     <h1>Your Order Has Been Placed</h1>
     <p>Thank you for ordering with us, we'll contact you by email with your order details.</p>
+    <div class="address">
+        <?php if (empty($_SESSION["name"])): ?>
+            <form action ="index1.php?page=placeorder" method="post">
+                Address: <input type = "text" name="address"><br>
+            <input type ="submit">
+        </form>
+        <?php else:?>
+        <p>Address: <?php echo $_SESSION["address"];?></p>
+
+        <?php endif; ?>
+    </div>
     <table>
     <h2>Receipt</h2>
             <thead>
