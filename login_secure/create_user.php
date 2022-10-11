@@ -24,11 +24,16 @@ if(strlen($username) == 0){
     closeCon($conn);
 }
 
-$sqlPaswordBlacklist = "SELECT bl_pwd
-                        FROM blacklist
-                        WHERE bl_pwd = '$password'";
 
-$passwordCheck = mysqli_query($conn, $sqlPaswordBlacklist);
+$stmtBlacklist = $conn->prepare("SELECT bl_pwd
+                                 FROM blacklist
+                                 WHERE bl_pwd = ?");
+
+$stmtBlacklist->bind_param("s", $password);
+$stmtBlacklist->execute();
+
+
+$passwordCheck = $stmtBlacklist->get_result();
 
 if(mysqli_num_rows($passwordCheck) > 0){
     echo "Error: Do not use commonly used passwords";
@@ -36,13 +41,16 @@ if(mysqli_num_rows($passwordCheck) > 0){
     exit();
 }
 
-$sqlUsernameCheck = "SELECT username
-                    FROM user_details
-                    WHERE username = '$username'";
+$stmtUsernameCheck = $conn->prepare("SELECT username
+                                     FROM user_details
+                                     WHERE username = ?");
+
+$stmtUsernameCheck->bind_param("s", $username);
+$stmtUsernameCheck->execute();
 
 
 //Check if username already exists
-$usernameCheck =  mysqli_query($conn, $sqlUsernameCheck);
+$usernameCheck =  $stmtUsernameCheck->get_result();
 
 if(mysqli_num_rows($usernameCheck) > 0){
     echo "Error: Username already exists";
@@ -51,10 +59,12 @@ if(mysqli_num_rows($usernameCheck) > 0){
 }
 
 
-$sql = "INSERT INTO user_details (username, address, hash)
-        VALUES ('$username', '$address','$password_hash')";
+$stmtInsertUser = $conn->prepare("INSERT INTO user_details (username, address, hash)
+                                  VALUES (?, ?, ?)");
 
-mysqli_query($conn, $sql);
+$stmtInsertUser->bind_param("sss", $username, $address, $password_hash);
+$stmtInsertUser->execute();
+
 echo "Welcome " . $username;
 $_SESSION['name'] = $username;
 

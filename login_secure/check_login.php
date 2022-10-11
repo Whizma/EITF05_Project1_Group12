@@ -6,13 +6,14 @@ $conn = openCon("login");
 $username = strip_tags($_POST["new_name"]);
 $password = strip_tags($_POST["new_password"]);
 
-$sqlGetHash =  "SELECT hash
-                FROM user_details
-                WHERE username = '$username'";
+$stmt = $conn->prepare("SELECT hash, address
+                        FROM user_details
+                        WHERE username = ?");
 
-$result = mysqli_query($conn, $sqlGetHash);
+$stmt->bind_param("s", $username);
+$stmt->execute();
 
-sleep(1);
+$result = $stmt->get_result();
 
 if(mysqli_num_rows($result) != 1){
     echo "Error: wrong password";
